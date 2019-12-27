@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :subscriptions
     has_many :services, through: :subscriptions
     has_many :user_programs
-    has_many :programs, through: :user_programs
+    # has_many :programs, through: :user_programs
     has_secure_password
 
     validates :username, presence: true
