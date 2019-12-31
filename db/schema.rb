@@ -60,24 +60,15 @@ ActiveRecord::Schema.define(version: 2019_12_11_160831) do
 
   create_table "user_programs", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "program_id"
+    t.integer "guidebox_id"
     t.string "is_seen"
     t.string "is_rejected"
     t.string "is_watchlist"
     t.integer "is_movie"
     t.string "title"
     t.string "release_year"
-    t.string "imdb"
-    t.integer "rottentomatoes"
-    t.string "genre"
-    t.string "description"
-    t.string "cast"
-    t.string "director"
-    t.string "writers"
+    t.string "imdb_id"
     t.string "poster"
-    t.integer "user_rating"
-    t.integer "priority"
-    t.index ["program_id"], name: "index_user_programs_on_program_id"
     t.index ["user_id"], name: "index_user_programs_on_user_id"
   end
 
