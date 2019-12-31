@@ -85,7 +85,7 @@ class Api::V1::UserProgramsController < Api::V1::BaseController
     end
 
     def seen_program
-      user_program = UserProgram.find_buy(params[:id])
+      user_program = UserProgram.find_by(params[:id])
       user_program.update_all "is_seen = 1, is_watchlist = 0"
       if user_program.save!
         render json: {
@@ -101,7 +101,7 @@ class Api::V1::UserProgramsController < Api::V1::BaseController
     end
 
     def remove_program
-      user_program = UserProgram.find_buy(params[:id])
+      user_program = UserProgram.find_by(params[:id])
       user_program.update_all "is_seen = 1, is_watchlist = 0"
       if user_program.save!
         render json: {
@@ -120,12 +120,12 @@ class Api::V1::UserProgramsController < Api::V1::BaseController
     end
 
     def destroy_seen_program
-      user_program = UserProgram.find_buy(params[:id])
+      user_program = UserProgram.find_by(params[:id])
       user_program.destroy
     end
 
     def destroy_removed_program
-      user_program = UserProgram.find_buy(params[:id])
+      user_program = UserProgram.find_by(params[:id])
       user_program.destroy
     end
 

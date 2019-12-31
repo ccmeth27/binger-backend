@@ -46,15 +46,25 @@ ActiveRecord::Schema.define(version: 2019_12_11_160831) do
     t.string "poster"
   end
 
-  create_table "service", force: :cascade do |t|
+  create_table "services", force: :cascade do |t|
     t.string "service_name"
+    t.string "logo_path"
+    t.integer "row_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "active"
     t.integer "user_id"
-    t.integer "service_id"
-    t.index ["service_id"], name: "index_subscriptions_on_service_id"
+    t.boolean "amazon"
+    t.boolean "disney"
+    t.boolean "fx"
+    t.boolean "hbo"
+    t.boolean "hulu"
+    t.boolean "netflix"
+    t.boolean "showtime"
+    t.boolean "starz"
+    t.boolean "tbs"
+    t.boolean "tnt"
+    t.boolean "usa"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
